@@ -19,10 +19,12 @@
     <h1>주식 뉴스 AI 분석기</h1>
     <p class="setup-desc">Gemini API 키를 입력하면 실시간 주식 뉴스 분석을 시작할 수 있어요</p>
     <div class="setup-form">
-      <input type="password" id="setupKeyInput" placeholder="Gemini API Key" class="setup-input">
+      <input type="password" id="setupGeminiKey" placeholder="Gemini API Key" class="setup-input">
+      <input type="text" id="setupNaverId" placeholder="Naver Client ID" class="setup-input">
+      <input type="password" id="setupNaverSecret" placeholder="Naver Client Secret" class="setup-input">
       <button id="setupSaveBtn" class="setup-btn">시작하기</button>
     </div>
-    <p class="setup-hint">키는 이 브라우저에만 저장되며, 다시 입력할 필요 없어요</p>
+    <p class="setup-hint">모든 키는 브라우저에만 저장되며, 한 번 입력하면 다시 필요 없어요</p>
   </div>
 </div>
 
@@ -89,15 +91,20 @@
       <div class="modal-body">
         <div class="setting-group">
           <label>Gemini API 키</label>
-          <div class="key-row">
-            <input type="password" id="apiKeyInput" class="setting-input">
-            <button class="sm-btn" id="keyToggle">보기</button>
-          </div>
-          <button class="save-btn" id="keySaveBtn">저장</button>
+          <input type="password" id="sGeminiKey" class="setting-input" style="width:100%;margin-bottom:10px;">
         </div>
+        <div class="setting-group">
+          <label>Naver Client ID</label>
+          <input type="text" id="sNaverId" class="setting-input" style="width:100%;margin-bottom:10px;">
+        </div>
+        <div class="setting-group">
+          <label>Naver Client Secret</label>
+          <input type="password" id="sNaverSecret" class="setting-input" style="width:100%;margin-bottom:10px;">
+        </div>
+        <button class="save-btn" id="sSaveBtn">저장</button>
         <div class="setting-info">
-          <p>API 키는 브라우저에만 저장됩니다.</p>
-          <p class="version">v1.1</p>
+          <p>모든 키는 브라우저 localStorage에만 저장됩니다.</p>
+          <p class="version">v1.2</p>
         </div>
       </div>
     </div>

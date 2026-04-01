@@ -258,8 +258,10 @@ input{font:inherit;}
   display:flex;align-items:center;justify-content:center;
   font-size:.72rem;font-weight:700;color:var(--text-sub);flex-shrink:0;
 }
+.source-info{flex:1;min-width:0;display:flex;flex-direction:column;gap:2px;}
 .source-text{
-  flex:1;font-size:.82rem;color:var(--text-sub);
+  font-size:.82rem;color:var(--text-sub);
   overflow:hidden;text-overflow:ellipsis;white-space:nowrap;
 }
+.source-date{font-size:.7rem;color:var(--text-dim);}
 .source-arrow{color:var(--primary);font-size:.85rem;flex-shrink:0;}
