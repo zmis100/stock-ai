@@ -12,7 +12,7 @@
 </head>
 <body>
 
-<!-- API Key Setup (first time) -->
+<!-- API Key Setup (first time only) -->
 <div id="setupScreen" class="setup-screen" style="display:none;">
   <div class="setup-card">
     <div class="setup-icon">📈</div>
@@ -22,7 +22,7 @@
       <input type="password" id="setupKeyInput" placeholder="Gemini API Key" class="setup-input">
       <button id="setupSaveBtn" class="setup-btn">시작하기</button>
     </div>
-    <p class="setup-hint">키는 이 브라우저에만 저장되며, 어디에도 전송되지 않아요</p>
+    <p class="setup-hint">키는 이 브라우저에만 저장되며, 다시 입력할 필요 없어요</p>
   </div>
 </div>
 
@@ -35,18 +35,17 @@
     </div>
   </header>
 
-  <!-- Tabs -->
   <nav class="tabs">
-    <button class="tab active" data-tab="search">🔍 종목 분석</button>
-    <button class="tab" data-tab="market">📊 시장 동향</button>
-    <button class="tab" data-tab="theme">🎯 테마 분석</button>
+    <button class="tab active" data-tab="search">🔍 종목</button>
+    <button class="tab" data-tab="market">📊 시장</button>
+    <button class="tab" data-tab="theme">🎯 테마</button>
   </nav>
 
   <main class="main">
     <!-- Tab 1: Stock Search -->
     <section id="tabSearch" class="tab-content active">
       <div class="search-box">
-        <input type="text" id="stockInput" placeholder="종목명 입력 (예: 삼성전자, SK하이닉스)" class="search-input">
+        <input type="text" id="stockInput" placeholder="종목명 (예: 삼성전자)" class="search-input">
         <button id="searchBtn" class="search-btn">분석</button>
       </div>
       <div class="quick-chips">
@@ -58,6 +57,8 @@
         <button class="chip" data-q="LG에너지솔루션">LG에너지</button>
         <button class="chip" data-q="셀트리온">셀트리온</button>
         <button class="chip" data-q="POSCO홀딩스">POSCO</button>
+        <button class="chip" data-q="삼성바이오로직스">삼성바이오</button>
+        <button class="chip" data-q="기아">기아</button>
       </div>
       <div id="searchResult" class="result-area"></div>
     </section>
@@ -65,40 +66,15 @@
     <!-- Tab 2: Market Overview -->
     <section id="tabMarket" class="tab-content">
       <div class="market-intro">
-        <p>오늘의 주요 시장 동향을 AI가 분석합니다</p>
-        <button id="marketBtn" class="action-btn">📊 시장 동향 분석 시작</button>
+        <p>실시간 시장 동향을 AI가 분석합니다</p>
+        <button id="marketBtn" class="action-btn">📊 시장 동향 분석</button>
       </div>
       <div id="marketResult" class="result-area"></div>
     </section>
 
     <!-- Tab 3: Theme Analysis -->
     <section id="tabTheme" class="tab-content">
-      <div class="theme-grid">
-        <button class="theme-card" data-q="AI 반도체 관련주 최신 동향">
-          <span class="theme-icon">🤖</span><span class="theme-label">AI/반도체</span>
-        </button>
-        <button class="theme-card" data-q="2차전지 배터리 관련주 최신 동향">
-          <span class="theme-icon">🔋</span><span class="theme-label">2차전지</span>
-        </button>
-        <button class="theme-card" data-q="바이오 제약 관련주 최신 동향">
-          <span class="theme-icon">💊</span><span class="theme-label">바이오</span>
-        </button>
-        <button class="theme-card" data-q="자동차 전기차 관련주 최신 동향">
-          <span class="theme-icon">🚗</span><span class="theme-label">자동차/EV</span>
-        </button>
-        <button class="theme-card" data-q="엔터테인먼트 게임 관련주 최신 동향">
-          <span class="theme-icon">🎮</span><span class="theme-label">엔터/게임</span>
-        </button>
-        <button class="theme-card" data-q="방산 방위산업 관련주 최신 동향">
-          <span class="theme-icon">🛡️</span><span class="theme-label">방산</span>
-        </button>
-        <button class="theme-card" data-q="로봇 자동화 관련주 최신 동향">
-          <span class="theme-icon">🦾</span><span class="theme-label">로봇</span>
-        </button>
-        <button class="theme-card" data-q="원자력 에너지 관련주 최신 동향">
-          <span class="theme-icon">⚡</span><span class="theme-label">원자력</span>
-        </button>
-      </div>
+      <div class="theme-grid" id="themeGrid"></div>
       <div id="themeResult" class="result-area"></div>
     </section>
   </main>
@@ -120,9 +96,8 @@
           <button class="save-btn" id="keySaveBtn">저장</button>
         </div>
         <div class="setting-info">
-          <p>이 앱은 Google Gemini API를 사용합니다.</p>
-          <p>API 키는 브라우저 localStorage에만 저장됩니다.</p>
-          <p class="version">v1.0 · zmis100</p>
+          <p>API 키는 브라우저에만 저장됩니다.</p>
+          <p class="version">v1.1</p>
         </div>
       </div>
     </div>
